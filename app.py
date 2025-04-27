@@ -1,13 +1,14 @@
 import streamlit as st
 import pandas as pd
+from catboost import CatBoostClassifier
 import shap
 import matplotlib.pyplot as plt
-from catboost import CatBoostClassifier
+import numpy as np
 import joblib
 
-# 加载模型和解释器
-model = CatBoostClassifier().load_model("D:/桌面/DR_Prediction_App/model/catboost_model.cbm")
-explainer = joblib.load("D:/桌面/DR_Prediction_App/model/explainer.shap")
+# 加载模型
+model = CatBoostClassifier().load_model("model/catboost_model.cbm")
+explainer = joblib.load("model/explainer.shap")
 
 # 页面配置
 st.set_page_config(page_title="DR Prediction", layout="wide")
